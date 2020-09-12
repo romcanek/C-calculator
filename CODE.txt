@@ -1,0 +1,81 @@
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+
+int main()
+{
+  start:
+    float num1;
+    char znam;
+    float num2;
+    string yn;
+
+        cout << ("Enter number: ");
+        cin >> num1;
+
+        while(true)
+        {
+            if(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"You have entered wrong input, Try again: " << endl;
+                cin >> num1;
+            }
+            if(!cin.fail())
+            break;
+        }
+        cout << ("Enter operation(+,-,*,/): ");
+        cin >> znam;
+
+        cout << ("Enter second number: ");
+        cin >> num2;
+
+        while(true)
+        {
+            if(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "You have entered wrong input, Try again: " << endl;
+                cin >> num2;
+            }
+            if(!cin.fail())
+                break;
+        }
+        switch(znam)
+        {
+            case '+':
+                cout<< num1 + num2 << endl;
+            break;
+
+            case '-':
+                cout << num1 - num2 << endl;
+            break;
+
+            case '*':
+                cout << num1 * num2 << endl;
+            break;
+
+            case '/':
+                cout << num1 / num2 << endl;
+            break;
+
+            default:
+                cout << ("ERROR: Operation \n");
+        }
+                cout << ("Do you want to try again?(y,n): ");
+                cin >> yn;
+
+                if(yn == "y")
+                {
+                   goto start;
+                }
+                else
+                {
+                    return 0;
+                }
+    return 0;
+}
